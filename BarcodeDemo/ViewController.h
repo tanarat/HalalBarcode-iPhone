@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZBarSDK.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <ZBarReaderDelegate, UIWebViewDelegate>
+{
+    UIImage *resultImage;
+    UITextField *resultText;
+    UIWebView *webContentView;
+}
+
+@property (nonatomic, retain) UIImage *resultImage;
+@property (nonatomic, retain) IBOutlet UIWebView *webContentView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *sendButton;
+@property (strong, nonatomic) IBOutlet UITextField *resultText;
+
+- (IBAction) scanButtonTapped;
+- (IBAction) sendButtonTapped:(id)sender;
 
 @end
